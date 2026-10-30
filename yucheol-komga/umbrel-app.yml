@@ -12,7 +12,7 @@ folderAccess:
         readOnly: true
 category: media
 name: Komga
-version: "1.29.2"
+version: "1.29.2-1"
 tagline: Media server for your comics, manga and magazines
 description: >-
   Komga is a free and open source media server for your comics, mangas, BDs,
@@ -36,5 +36,7 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Initial packaging of Komga 1.29.2 for this personal community app store.
+  Packaging revision 1: the container no longer runs with a fixed user id,
+  which prevented Komga from creating its database on first start. Komga
+  itself is unchanged (1.29.2).
 torOnly: false
