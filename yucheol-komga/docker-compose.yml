@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: yucheol-komga_server_1
+      APP_PORT: 25600
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    image: gotson/komga:1.29.2@sha256:1d89b79f6cee732438c0c51f876373ad1c6a0d6cdae47c008bfa24e1d1bed748
+    restart: on-failure
+    user: "1000:1000"
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
