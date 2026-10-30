@@ -1,5 +1,6 @@
 manifestVersion: 1.1
 id: yucheol-komga
+icon: https://raw.githubusercontent.com/yucheol/umbrel-store/main/yucheol-komga/assets/icon.png
 storage:
   dataRoot: data
 folderAccess:
@@ -12,7 +13,7 @@ folderAccess:
         readOnly: true
 category: media
 name: Komga
-version: "1.29.2-2"
+version: "1.29.2-3"
 tagline: Media server for your comics, manga and magazines
 description: >-
   Komga is a free and open source media server for your comics, mangas, BDs,
@@ -37,8 +38,9 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Packaging revision 2: added the (empty) gallery field — without it the
-  Umbrel app page failed to open. Revision 1 removed the fixed user id,
-  which had prevented Komga from creating its database on first start.
-  Komga itself is unchanged (1.29.2).
+  Packaging revision 3: added the official Komga icon. Revision 2 added
+  the (empty) gallery field, without which the Umbrel app page failed to
+  open. Revision 1 removed the fixed user id, which had prevented Komga
+  from creating its database on first start. Komga itself is unchanged
+  (1.29.2).
 torOnly: false
