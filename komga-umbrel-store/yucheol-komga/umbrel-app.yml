@@ -1,0 +1,40 @@
+manifestVersion: 1.1
+id: yucheol-komga
+storage:
+  dataRoot: data
+folderAccess:
+  - id: comics-library
+    name: Comics Library
+    note: Select the folder that contains your comics and manga, for example a folder on the connected Synology share. It will be available inside Komga at /data. Access is read-only to protect the original files.
+    mounts:
+      - service: server
+        targetPath: /data
+        readOnly: true
+category: media
+name: Komga
+version: "1.29.2"
+tagline: Media server for your comics, manga and magazines
+description: >-
+  Komga is a free and open source media server for your comics, mangas, BDs,
+  magazines and ebooks. Browse your libraries with the web interface or use
+  the API and OPDS support with reader apps.
+
+
+  This package is maintained in a personal community app store. Komga's
+  database and configuration live in local app storage, while the library
+  itself stays where it already is: grant Komga access to the folder that
+  holds your books (for example the Synology network share) in the app
+  settings, then add that folder as a library inside Komga. It will appear
+  at /data.
+developer: gotson
+website: https://komga.org/
+dependencies: []
+repo: https://github.com/gotson/komga
+support: https://github.com/gotson/komga/issues
+port: 25600
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  Initial packaging of Komga 1.29.2 for this personal community app store.
+torOnly: false
