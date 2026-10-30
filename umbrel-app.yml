@@ -1,0 +1,46 @@
+manifestVersion: 1.1
+id: yucheol-2fauth
+storage:
+  dataRoot: data
+category: security
+name: 2FAuth
+version: "9.0.0"
+tagline: Manage your two-factor authentication accounts and codes
+description: >-
+  2FAuth is a free and open source web application for managing your
+  two-factor authentication (2FA) accounts and generating their security
+  codes (TOTP, HOTP and Steam Guard). It is a self-hosted alternative to
+  authenticator apps tied to a single phone: if the phone is lost, the
+  codes still live here, and on a computer you can keep the code list
+  open in its own window while you work.
+
+
+  This package is maintained in a personal community app store. All data
+  (the SQLite database, icons and logs) lives in local app storage under
+  /2fauth. This is a fresh, empty instance: create the first account in
+  the web interface (it becomes the administrator), then import your
+  accounts from your existing 2FAuth instance using its export file.
+  The encryption key (APP_KEY) is not stored in this repository; it is
+  derived from this Umbrel installation's own seed by exports.sh, so it
+  stays the same across restarts and updates on this Umbrel, and never
+  leaves the machine.
+developer: Bubka
+website: https://2fauth.app/
+dependencies: []
+repo: https://github.com/Bubka/2FAuth
+support: https://github.com/Bubka/2FAuth/issues
+port: 8000
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+releaseNotes: >-
+  Initial packaging of 2FAuth 9.0.0 (released 2026-10-27) for this
+  personal community app store. The container runs as user 1000:1000,
+  as the upstream image is designed to, with the app data root mounted
+  directly at /2fauth. APP_KEY is derived from the Umbrel seed via
+  exports.sh instead of being written into this public repository.
+  Umbrel's own login stays in front of the app (the app proxy auth is
+  not disabled). 9.0.0 also fixes the upstream Docker issue where
+  large API responses could be truncated when running as non-root.
+torOnly: false

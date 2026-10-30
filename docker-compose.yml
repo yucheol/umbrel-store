@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: yucheol-2fauth_server_1
+      APP_PORT: 8000
+
+  server:
+    image: 2fauth/2fauth:9.0.0
+    restart: on-failure
+    user: "1000:1000"
+    environment:
+      - APP_NAME=2FAuth
+      - APP_ENV=local
+      - APP_DEBUG=false
+      - APP_TIMEZONE=Asia/Seoul
+      - APP_KEY=${APP_2FAUTH_APP_KEY}
+      - APP_URL=http://192.168.100.140:8000
+    volumes:
+      - ${APP_DATA_DIR}/data:/2fauth
