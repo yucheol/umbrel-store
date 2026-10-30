@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# umbreld creates the app data directory owned by root, but the 2FAuth
+# container runs as user 1000:1000 and cannot create its database file
+# there ("touch: /2fauth/database.sqlite: Permission denied"). Hand the
+# data root over to the app user before the app starts.
+APP_DIR="$(readlink -f "$(dirname "${BASH_SOURCE[0]}")/..")"
+DATA_ROOT="${APP_DATA_ROOT:-${APP_DIR}/data}"
+if [[ -d "${DATA_ROOT}" ]]; then
+  chown -R "1000:1000" "${DATA_ROOT}"
+fi

@@ -1,10 +1,11 @@
 manifestVersion: 1.1
 id: yucheol-2fauth
+icon: https://raw.githubusercontent.com/yucheol/umbrel-store/main/yucheol-2fauth/assets/icon.png
 storage:
   dataRoot: data
 category: security
 name: 2FAuth
-version: "9.0.0"
+version: "9.0.0-2"
 tagline: Manage your two-factor authentication accounts and codes
 description: >-
   2FAuth is a free and open source web application for managing your
@@ -35,12 +36,16 @@ path: ""
 defaultUsername: ""
 defaultPassword: ""
 releaseNotes: >-
-  Initial packaging of 2FAuth 9.0.0 (released 2026-10-27) for this
-  personal community app store. The container runs as user 1000:1000,
-  as the upstream image is designed to, with the app data root mounted
-  directly at /2fauth. APP_KEY is derived from the Umbrel seed via
-  exports.sh instead of being written into this public repository.
-  Umbrel's own login stays in front of the app (the app proxy auth is
-  not disabled). 9.0.0 also fixes the upstream Docker issue where
-  large API responses could be truncated when running as non-root.
+  Packaging revision 2: adds the official 2FAuth icon, and fixes
+  first-start failure on a fresh install.
+  umbreld creates the app data directory owned by root, but 2FAuth
+  runs as user 1000:1000 and could not create its database there
+  ("Permission denied"). A pre-start hook now hands the data root
+  over to user 1000 before the app starts, and the package ships the
+  data directory itself. Revision 1 was the initial packaging of
+  2FAuth 9.0.0 (released 2026-10-27): container as user 1000:1000
+  with the data root mounted directly at /2fauth, APP_KEY derived
+  from the Umbrel seed via exports.sh instead of being written into
+  this public repository, and Umbrel's own login left in front of
+  the app (the app proxy auth is not disabled).
 torOnly: false
